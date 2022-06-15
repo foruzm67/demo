@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demodocker
+spec:
+  selector:
+    matchLabels:
+      app: demodocker
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: demodocker
+    spec:
+      containers:
+        - name: demodocker
+          image: demodocker:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8181

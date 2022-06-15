@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/welcome")
+@RequestMapping
 public class controller {
 
-	@GetMapping("/{name}")
-	public ResponseEntity<String> getGreeting(@PathVariable("name") String name) {
-		return new ResponseEntity<String>("Hello dear: " + name, HttpStatus.OK);
+	@GetMapping
+	public ResponseEntity<String> getGreeting() {
+		return new ResponseEntity<String>("Hello dear", HttpStatus.OK);
 	}
 }
