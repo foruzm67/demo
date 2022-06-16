@@ -1,3 +1,4 @@
+def gv
 pipeline {
 
     agent any
@@ -7,6 +8,13 @@ pipeline {
 		 
 	 }
     stages {
+	  stage("init"){
+          steps {
+               script{
+			gv = load "script.groovy" 
+		}
+            }
+        }
         stage("build"){
             steps {
                 echo 'building the application...'
@@ -15,12 +23,14 @@ pipeline {
         
     stage("test"){
          when {
-				expression{ 
-					params.testExecution==true
+		expression{ 
+		params.testExecution==true
 				}
 	 }
             steps {
-                echo 'testing the application...'
+		    script{
+			    gv.buildApp()
+		    }
             }
         }
         
