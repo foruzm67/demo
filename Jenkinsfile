@@ -29,7 +29,7 @@ pipeline {
 	 }
             steps {
 		    script{
-			    gv.buildApp()
+			    gv.testApp()
 		    }
             }
         }
