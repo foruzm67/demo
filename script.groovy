@@ -1,4 +1,4 @@
-def buildApp(){
-	echo 'building application....'
+def testApp(){
+	echo 'test automation application....'
 }
 return this
