@@ -16,8 +16,9 @@ pipeline {
     stage("test"){
          when {
 				expression{ 
-					params.testExecution
+					params.testExecution==true
 				}
+	 }
             steps {
                 echo 'testing the application...'
             }
@@ -30,5 +31,4 @@ pipeline {
             }
         }
     }
-}
 }
